@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+html,
+body {
+  font-family: "Hind Siliguri", "Ubuntu", sans-serif;
+  font-weight: 400;
+}
+
+.tiro-bangla-regular {
+  font-family: "Tiro Bangla", serif;
+  font-weight: 600;
+  font-style: normal;
+}
