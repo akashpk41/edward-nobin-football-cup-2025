@@ -235,12 +235,12 @@ const TournamentSection = () => {
           }`}
         >
           <div className="inline-flex items-center px-4 md:px-8 py-4 bg-gradient-to-r from-orange-600/30 to-red-600/30 backdrop-blur-2xl border border-orange-500/40 rounded-full shadow-2xl mb-8">
-            <span className="text-orange-400 font-bold text-lg md:text-xl tracking-wide flex items-center gap-3">
+            <span className="text-orange-400 font-bold text-lg md:text-5xl tracking-wide flex items-center gap-3">
               🎖️ শহীদ জাহিদুল ইসলাম স্মৃতি স্মরণে 🎖️
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+          <h1 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">
             <span className="bg-gradient-to-r from-orange-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">
               ✨ <span className="text-white">নবীন শিক্ষার্থীদের </span> ফুটবল
               টুর্নামেন্ট ২০২৫ ✨
@@ -399,7 +399,7 @@ const TournamentSection = () => {
                 <img
                   src="https://i.ibb.co.com/67y9b8w6/716e30c7-a41f-4a18-8fb8-1eb7ef119bfc-removebg-preview.png"
                   alt="College Logo"
-                  className="w-38 h-38 object-contain rounded-full shadow-2xl border-2 border-gradient-to-r from-purple-400 to-pink-400"
+                  className="w-38 h-38 object-contain rounded-full shadow-2xl border-2 border-gradient-to-r border-white from-purple-400 to-pink-400"
                 />
               </div>
 
@@ -444,18 +444,6 @@ const TournamentSection = () => {
 
               {/* Contact Numbers - Simplified */}
               <div className="flex flex-col md:flex-row justify-center gap-4 max-w-lg mx-auto">
-                {/* Shawon */}
-                <div className="flex items-center justify-center gap-3 p-3 rounded-lg bg-blue-500/20 border border-blue-400/30">
-                  <div className="w-10 h-10 bg-blue-400/40 rounded-full flex items-center justify-center text-lg">
-                    📞
-                  </div>
-                  <div className="text-left">
-                    <p className="text-blue-400 font-semibold text-lg">
-                      Shawon
-                    </p>
-                    <p className="text-white font-bold text-lg">01768298331</p>
-                  </div>
-                </div>
 
                 {/* Tanzim */}
                 <div className="flex items-center justify-center gap-3 p-3 rounded-lg bg-purple-500/20 border border-purple-400/30">
@@ -464,11 +452,26 @@ const TournamentSection = () => {
                   </div>
                   <div className="text-left">
                     <p className="text-purple-400 font-semibold text-lg">
-                      Tanzim
+                     মো: শাওন হোসেন
                     </p>
-                    <p className="text-white font-bold text-lg">01628147782</p>
+                    <p className="text-white font-bold text-lg">01768298331</p>
                   </div>
                 </div>
+
+  {/* Shawon */}
+                <div className="flex items-center justify-center gap-3 p-3 rounded-lg bg-blue-500/20 border border-blue-400/30">
+                  <div className="w-10 h-10 bg-blue-400/40 rounded-full flex items-center justify-center text-lg">
+                    📞
+                  </div>
+                  <div className="text-left">
+                    <p className="text-blue-400 font-semibold text-lg">
+ রেজাউল ইসলাম বাধন
+                    </p>
+                    <p className="text-white font-bold text-lg">01709514747</p>
+                  </div>
+                </div>
+
+
               </div>
             </div>
           </div>

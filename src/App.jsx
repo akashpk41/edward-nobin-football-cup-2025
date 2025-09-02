@@ -1,12 +1,13 @@
-import TournamentSection from "./components/TournamentSection"
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import TournamentSection from "./components/TournamentSection";
 
 function App() {
-
   return (
     <>
-     <TournamentSection />
+      <ScrollProgressBar />
+      <TournamentSection />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
