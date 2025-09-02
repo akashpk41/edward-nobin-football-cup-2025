@@ -7,11 +7,11 @@ const TournamentSection = () => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
 
   // Tournament date - September 10, 2025
-  const tournamentDate = new Date('2025-09-10T00:00:00').getTime();
+  const tournamentDate = new Date("2025-09-10T00:00:00").getTime();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,31 +20,33 @@ const TournamentSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const distance = tournamentDate - now;
+  // useEffect(() => {
+  //   const updateCountdown = () => {
+  //     const now = new Date().getTime();
+  //     const distance = tournamentDate - now;
 
-      if (distance > 0) {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  //     if (distance > 0) {
+  //       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //       const hours = Math.floor(
+  //         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //       );
+  //       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  //       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        setCountdown({ days, hours, minutes, seconds });
-      } else {
-        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
+  //       setCountdown({ days, hours, minutes, seconds });
+  //     } else {
+  //       setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  //     }
+  //   };
 
-    // Update immediately
-    updateCountdown();
+  //   // Update immediately
+  //   updateCountdown();
 
-    // Update every second
-    const interval = setInterval(updateCountdown, 1000);
+  //   // Update every second
+  //   const interval = setInterval(updateCountdown, 1000);
 
-    return () => clearInterval(interval);
-  }, [tournamentDate]);
+  //   return () => clearInterval(interval);
+  // }, [tournamentDate]);
 
   const tabData = [
     {
@@ -76,8 +78,9 @@ const TournamentSection = () => {
         },
         {
           icon: "🎓",
-          label: "যোগ্যতা",
-          value: "শুধুমাত্র নবীন শিক্ষার্থীরাই অংশগ্রহণ করতে পারবে",
+          label: "অংশগ্রহণের শর্তাবলি",
+          value:
+            "শুধুমাত্র নবীন শিক্ষার্থীরাই অংশগ্রহণের সুযোগ পাবেন। অংশগ্রহণযোগ্য শিক্ষাবর্ষ: Honours (২০২৪-২০২৫) ও Degree (২০২৩-২০২৪)",
         },
       ],
     },
@@ -200,33 +203,57 @@ const TournamentSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 md:px-6">
         {/* Countdown Timer */}
-        <div
+        {/* <div
           className={`mb-20 transform transition-all duration-1200 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
         >
           <div className="backdrop-blur-3xl bg-gradient-to-br from-black/60 to-gray-900/40 border border-orange-500/30 rounded-3xl p-10 shadow-2xl">
             <h3 className="text-3xl font-black text-white text-center mb-8">
-              টুর্নামেন্ট শুরু হতে <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">বাকি</span>
+              টুর্নামেন্ট শুরু হতে{" "}
+              <span className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                বাকি
+              </span>
             </h3>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { label: "দিন", value: countdown.days, color: "from-red-500 to-pink-600" },
-                { label: "ঘন্টা", value: countdown.hours, color: "from-orange-500 to-red-600" },
-                { label: "মিনিট", value: countdown.minutes, color: "from-yellow-500 to-orange-600" },
-                { label: "সেকেন্ড", value: countdown.seconds, color: "from-green-500 to-emerald-600" }
+                {
+                  label: "দিন",
+                  value: countdown.days,
+                  color: "from-red-500 to-pink-600",
+                },
+                {
+                  label: "ঘন্টা",
+                  value: countdown.hours,
+                  color: "from-orange-500 to-red-600",
+                },
+                {
+                  label: "মিনিট",
+                  value: countdown.minutes,
+                  color: "from-yellow-500 to-orange-600",
+                },
+                {
+                  label: "সেকেন্ড",
+                  value: countdown.seconds,
+                  color: "from-green-500 to-emerald-600",
+                },
               ].map((item, index) => (
-                <div key={index} className={`backdrop-blur-2xl bg-gradient-to-br ${item.color}/20 border border-orange-500/20 rounded-2xl p-6 text-center shadow-xl scale-105 transition-all duration-300`}>
+                <div
+                  key={index}
+                  className={`backdrop-blur-2xl bg-gradient-to-br ${item.color}/20 border border-orange-500/20 rounded-2xl p-6 text-center shadow-xl scale-105 transition-all duration-300`}
+                >
                   <div className="text-4xl md:text-6xl font-black text-orange-400 mb-2">
-                    {String(item.value).padStart(2, '0')}
+                    {String(item.value).padStart(2, "0")}
                   </div>
-                  <div className="text-lg text-white font-bold tracking-wide">{item.label}</div>
+                  <div className="text-lg text-white font-bold tracking-wide">
+                    {item.label}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Hero Header */}
         <div
@@ -236,7 +263,7 @@ const TournamentSection = () => {
         >
           <div className="inline-flex items-center px-2 md:px-8 md:py-4 py-10 bg-gradient-to-r from-orange-600/30 to-red-600/30 backdrop-blur-2xl border border-orange-500/40 rounded-4xl md:rounded-full shadow-2xl mb-6">
             <span className="text-orange-400 font-bold text-4xl md:text-5xl tracking-wide flex items-center gap-0">
-             শহীদ জাহিদুল ইসলাম স্মৃতি স্মরণে 🎖️
+              শহীদ জাহিদুল ইসলাম স্মৃতি স্মরণে 🎖️
             </span>
           </div>
 
@@ -253,7 +280,8 @@ const TournamentSection = () => {
                 📅
               </div>
               <span className="font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-               শুরু <span className="tiro-bangla-regular" >১০</span>  সেপ্টেম্বর ২০২৫
+                শুরু <span className="tiro-bangla-regular">১০</span> সেপ্টেম্বর
+                ২০২৫
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -444,7 +472,6 @@ const TournamentSection = () => {
 
               {/* Contact Numbers - Simplified */}
               <div className="flex flex-col md:flex-row justify-center gap-4 max-w-lg mx-auto">
-
                 {/* Tanzim */}
                 <div className="flex items-center justify-center gap-3 p-3 rounded-lg bg-purple-500/20 border border-purple-400/30">
                   <div className="w-10 h-10 bg-purple-400/40 rounded-full flex items-center justify-center text-lg">
@@ -452,26 +479,24 @@ const TournamentSection = () => {
                   </div>
                   <div className="text-left">
                     <p className="text-purple-400 font-semibold text-lg">
-                     মো: শাওন হোসেন
+                      মো: শাওন হোসেন
                     </p>
                     <p className="text-white font-bold text-lg">01768298331</p>
                   </div>
                 </div>
 
-  {/* Shawon */}
+                {/* Shawon */}
                 <div className="flex items-center justify-center gap-3 p-3 rounded-lg bg-blue-500/20 border border-blue-400/30">
                   <div className="w-10 h-10 bg-blue-400/40 rounded-full flex items-center justify-center text-lg">
                     📞
                   </div>
                   <div className="text-left">
                     <p className="text-blue-400 font-semibold text-lg">
- রেজাউল ইসলাম বাধন
+                      রেজাউল ইসলাম বাধন
                     </p>
                     <p className="text-white font-bold text-lg">01709514747</p>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -480,10 +505,10 @@ const TournamentSection = () => {
             <div className="backdrop-blur-3xl bg-gradient-to-br from-black/60 to-gray-900/40 border border-orange-500/30 rounded-3xl p-6 shadow-2xl hover:scale-105 transition-all duration-500">
               <p className=" text-2xl md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">
                 <span className="text-white font-bold">শহীদ জাহিদুল ইসলাম</span>
-                -এর স্মৃতিকে {" "}
+                -এর স্মৃতিকে{" "}
                 <span className="text-blue-400 font-semibold">সম্মান</span>{" "}
                 জানিয়ে আয়োজিত এই
-                 <span className="text-green-400 ml-2 font-semibold mr-2">
+                <span className="text-green-400 ml-2 font-semibold mr-2">
                   ঐতিহ্যবাহী ফুটবল টুর্নামেন্টে
                 </span>
                 আপনাদের সবাইকে জানাই
@@ -495,10 +520,8 @@ const TournamentSection = () => {
             </div>
           </div>
         </div>
-
-
       </div>
-<DeveloperFooter />
+      {/* <DeveloperFooter /> */}
 
       {/* Custom Animations */}
       <style jsx>{`
