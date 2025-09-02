@@ -234,13 +234,13 @@ const TournamentSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          <div className="inline-flex items-center px-4 md:px-8 py-4 bg-gradient-to-r from-orange-600/30 to-red-600/30 backdrop-blur-2xl border border-orange-500/40 rounded-full shadow-2xl mb-8">
-            <span className="text-orange-400 font-bold text-lg md:text-5xl tracking-wide flex items-center gap-3">
-              🎖️ শহীদ জাহিদুল ইসলাম স্মৃতি স্মরণে 🎖️
+          <div className="inline-flex items-center px-2 md:px-8 md:py-4 py-10 bg-gradient-to-r from-orange-600/30 to-red-600/30 backdrop-blur-2xl border border-orange-500/40 rounded-4xl md:rounded-full shadow-2xl mb-6">
+            <span className="text-orange-400 font-bold text-4xl md:text-5xl tracking-wide flex items-center gap-0">
+             শহীদ জাহিদুল ইসলাম স্মৃতি স্মরণে 🎖️
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">
+          <h1 className="text-2xl md:text-4xl font-black text-white mb-6 tracking-tight">
             <span className="bg-gradient-to-r from-orange-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">
               ✨ <span className="text-white">নবীন শিক্ষার্থীদের </span> ফুটবল
               টুর্নামেন্ট ২০২৫ ✨
