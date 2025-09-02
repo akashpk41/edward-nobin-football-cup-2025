@@ -20,33 +20,33 @@ const TournamentSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // useEffect(() => {
-  //   const updateCountdown = () => {
-  //     const now = new Date().getTime();
-  //     const distance = tournamentDate - now;
+  useEffect(() => {
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = tournamentDate - now;
 
-  //     if (distance > 0) {
-  //       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  //       const hours = Math.floor(
-  //         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //       );
-  //       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  //       setCountdown({ days, hours, minutes, seconds });
-  //     } else {
-  //       setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  //     }
-  //   };
+        setCountdown({ days, hours, minutes, seconds });
+      } else {
+        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
 
-  //   // Update immediately
-  //   updateCountdown();
+    // Update immediately
+    updateCountdown();
 
-  //   // Update every second
-  //   const interval = setInterval(updateCountdown, 1000);
+    // Update every second
+    const interval = setInterval(updateCountdown, 1000);
 
-  //   return () => clearInterval(interval);
-  // }, [tournamentDate]);
+    return () => clearInterval(interval);
+  }, [tournamentDate]);
 
   const tabData = [
     {
@@ -203,7 +203,7 @@ const TournamentSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 md:px-6">
         {/* Countdown Timer */}
-        {/* <div
+        <div
           className={`mb-20 transform transition-all duration-1200 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
@@ -253,7 +253,7 @@ const TournamentSection = () => {
               ))}
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* Hero Header */}
         <div
@@ -521,7 +521,7 @@ const TournamentSection = () => {
           </div>
         </div>
       </div>
-      {/* <DeveloperFooter /> */}
+      <DeveloperFooter />
 
       {/* Custom Animations */}
       <style jsx>{`
